@@ -1,10 +1,3 @@
-require "rubygems"
-require "bundler/setup"
-require "active_record"
-require "./employee"
-require "./department"
-require "./db_connection"
-
 class EmployeesAndDepartmentsMigration < ActiveRecord::Migration
   def change
     create_table :employees do |t|

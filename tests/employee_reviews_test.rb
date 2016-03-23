@@ -1,6 +1,13 @@
-require 'test_helper'
+require './tests/test_helper'
 
 class EmployeeReviews < Minitest::Test
+  def setup
+    @employee = Employee.create(name: "Bob")
+  end
+
+  def teardown
+    @employee.destroy
+  end
 
   def test_classes_exist
     assert Department
