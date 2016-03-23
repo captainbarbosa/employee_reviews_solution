@@ -1,13 +1,7 @@
 
-class Employee
-  attr_reader :name, :email, :phone, :salary, :review, :satisfactory
+require "active_record"
 
-  def initialize(name: nil, email: nil, phone: nil, salary: nil)
-    @name = name
-    @email = email
-    @phone = phone
-    @salary = salary
-  end
+class Employee < ActiveRecord::Base
 
   def add_employee_review(review)
     @review = review
