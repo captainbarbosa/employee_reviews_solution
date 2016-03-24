@@ -28,8 +28,8 @@ class EmployeeReviews < Minitest::Test
   def test_can_add_employee_to_a_department
     a = Department.create(name: "Marketing")
 
-    emp_1 = Employee.new(name: "Dan", email: "d@mail.com", phone: "914-555-5555", salary: 50000.00)
-    emp_2 = Employee.new(name: "Dan", email: "d@mail.com", phone: "914-555-5555", salary: 50000.00)
+    emp_1 = Employee.create(name: "Dan", email: "d@mail.com", phone: "914-555-5555", salary: 50000.00)
+    emp_2 = Employee.create(name: "Bob", email: "b@mail.com", phone: "914-555-5555", salary: 70000.00)
 
     a.add_employee(emp_1)
     a.add_employee(emp_2)
