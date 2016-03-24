@@ -5,7 +5,11 @@ class Department < ActiveRecord::Base
   has_many(:employees)
 
   def add_employee(new_employee)
-    @staff << new_employee
+    # @staff << new_employee
+    # given a passed in employee,
+    # how do i add a department id,
+    # and persist that change
+    new_employee.department_id
   end
 
   def department_salary
