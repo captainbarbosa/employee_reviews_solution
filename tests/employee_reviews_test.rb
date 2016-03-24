@@ -15,7 +15,7 @@ class EmployeeReviews < Minitest::Test
   end
 
   def test_can_create_new_department
-    a = Department.new("Marketing")
+    a = Department.new({name: "Marketing"})
     assert a
     assert_equal "Marketing", a.name
   end
@@ -26,7 +26,7 @@ class EmployeeReviews < Minitest::Test
   end
 
   def test_can_add_employee_to_a_department
-    a = Department.new("Marketing")
+    a = Department.new({name: "Marketing"})
     new_employee = Employee.new(name: "Dan", email: "d@mail.com", phone: "914-555-5555", salary: 50000.00)
     a.add_employee(new_employee)
     assert_equal [new_employee], a.staff
@@ -43,12 +43,12 @@ class EmployeeReviews < Minitest::Test
   end
 
   def test_can_get_a_department_name
-    a = Department.new("Marketing")
+    a = Department.new({name: "Marketing"})
     assert_equal "Marketing", a.name
   end
 
   def test_total_department_salary
-    a = Department.new("Marketing")
+    a = Department.new({name: "Marketing"})
     new_employee = Employee.new(name: "Dan", email: "d@mail.com", phone: "914-555-5555", salary: 50000.00)
     old_employee = Employee.new(name: "Yvonne", email: "Yvonne@urFired.com", phone: "919-123-4567", salary: 40000.00)
     assert a.add_employee(new_employee)
@@ -81,7 +81,7 @@ class EmployeeReviews < Minitest::Test
   end
 
   def test_department_raises_based_on_criteria
-    a = Department.new("Marketing")
+    a = Department.new({name: "Marketing"})
     xavier = Employee.new(name: "Xavier", email: "ProfX@marvel.com", phone: "911", salary: 70000.00)
     new_employee = Employee.new(name: "Dan", email: "d@mail.com", phone: "914-555-5555", salary: 50000.00)
     old_employee = Employee.new(name: "Yvonne", email: "Yvonne@urFired.com", phone: "919-123-4567", salary: 40000.00)
