@@ -10,5 +10,5 @@ ActiveRecord::Base.establish_connection(
   database: 'tests/test.sqlite3'
 )
 #
-# require "./employees_and_departments_migration"
+require "./employees_and_departments_migration"
 # Put after

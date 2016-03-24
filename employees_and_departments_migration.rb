@@ -1,6 +1,14 @@
+require 'active_record'
+require './db_connection'
+
 class EmployeesAndDepartmentsMigration < ActiveRecord::Migration
+
+  #TODO: Remove employee_id from dept table & put
+  #      dept_id on employee table, then recreate both DBs
+
   def change
     create_table :employees do |t|
+      t.integer :department_id
       t.string :name
       t.string :email
       t.string :phone
@@ -10,7 +18,6 @@ class EmployeesAndDepartmentsMigration < ActiveRecord::Migration
     end
 
     create_table :departments do |t|
-      t.integer :employee_id
       t.string :name
       t.string :staff
       t.text :review
@@ -19,4 +26,8 @@ class EmployeesAndDepartmentsMigration < ActiveRecord::Migration
   end
 end
 
+begin
+  EmployeesAndDepartmentsMigration.migrate(:down)
+rescue
+end
 EmployeesAndDepartmentsMigration.migrate(:up)

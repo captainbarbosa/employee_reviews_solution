@@ -15,21 +15,29 @@ class EmployeeReviews < Minitest::Test
   end
 
   def test_can_create_new_department
-    a = Department.new({name: "Marketing"})
+    a = Department.create(name: "Marketing")
     assert a
     assert_equal "Marketing", a.name
   end
 
   def test_can_create_new_employee
-    new_employee = Employee.new(name: "Dan", email: "d@mail.com", phone: "914-555-5555", salary: 50000.00)
+    new_employee = Employee.create(name: "Dan", email: "d@mail.com", phone: "914-555-5555", salary: 50000.00)
     assert new_employee
   end
 
   def test_can_add_employee_to_a_department
-    a = Department.new({name: "Marketing"})
-    new_employee = Employee.new(name: "Dan", email: "d@mail.com", phone: "914-555-5555", salary: 50000.00)
-    a.add_employee(new_employee)
-    assert_equal [new_employee], a.staff
+    a = Department.create(name: "Marketing")
+
+    emp_1 = Employee.new(name: "Dan", email: "d@mail.com", phone: "914-555-5555", salary: 50000.00)
+    emp_2 = Employee.new(name: "Dan", email: "d@mail.com", phone: "914-555-5555", salary: 50000.00)
+
+    a.add_employee(emp_1)
+    a.add_employee(emp_2)
+    # No need to .save as add_employee's >> saves to the DB
+
+    assert_equal [emp_1, emp_2], a.staff
+    # [new_employee] use [] when you expect a list (i.e 1+ employees)
+    # assert_equal [emp_1, emp_2, emp3], a.staff
   end
 
   def test_can_get_employee_name
@@ -99,8 +107,8 @@ class EmployeeReviews < Minitest::Test
 
   def test_evaluate_employee_review
     xavier = Employee.new(name: 'Xavier', email: 'ProfX@marvel.com', phone: '911', salary: 70000.00)
-    xavier.add_employee_review(positive_review_one)
-    assert xavier.satisfactory
+    assert xavier.add_employee_review(positive_review_one)
+    assert_equal true, xavier.satisfactory
   end
 
   private def negative_review_one
