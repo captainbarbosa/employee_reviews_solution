@@ -1,7 +1,7 @@
 # Employee Reviews
 
 Keep track of a department's staff, and the details of each employee within a department using ActiveRecord.
-To test out functionality, download the repository and run `rake db:migrate` followed by `application.rb` to interact through [pry](https://github.com/pry/pry).
+To test out functionality, download the repository and run `rake db:migrate` followed by `application.rb` to interact through [pry](https://github.com/pry/pry). Created as an assignment while at The Iron Yard.
 
 ## Things you can do
 
