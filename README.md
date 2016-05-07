@@ -1,10 +1,9 @@
 # Employee Reviews
 
-## Description
+Keep track of a department's staff, and the details of each employee within a department using ActiveRecord.
+To test out functionality, download the repository and run `rake db:migrate` followed by `application.rb` to interact through [pry](https://github.com/pry/pry).
 
-Allows the user to keep track of a department's staff, and the details of each employee within a department.
-
-## Features
+## Things you can do
 
 * Create new departments, each with their own empty "staff" array:
 ```
@@ -22,9 +21,7 @@ marketing.add_employee(employee)
 ```
 new_employee.add_employee_review(review)
 ```
-* Give raises to an entire department.
-* Give raises to specific employees in a department based upon criteria of the user's choosing.
-* Scan employee review text and evaluate an employee's performance.
-* Access an employees performance rating rating at any time.
-
-Project was estimated to take 25 hours of work, but was completed in 16 hours.
+* Give raises to an entire department, but only to eligible employess with satisfactory standing.
+```
+marketing.give_raise(5000)
+```
